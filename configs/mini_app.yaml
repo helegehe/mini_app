@@ -3,7 +3,7 @@ AppConfig:
 MongoConfig:
   MongoRepo: "mongodb://admin:123456@127.0.0.1:27017/admin?connectTimeoutMS=10000&authSource=admin"
 MySqlConfig:
-  MysqlRepo: "qstack:123456@tcp(10.20.74.41:3306)/matrix?charset=utf8mb4&parseTime=True&loc=Local"
+  MysqlRepo: "qstack:123456@tcp(10.20.74.41:3306)/test_mysql?charset=utf8mb4&parseTime=True&loc=Local"
 Logger:
   Level: info
   Path: "/tmp/mini_app"

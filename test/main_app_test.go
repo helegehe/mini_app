@@ -3,13 +3,14 @@ package test
 import (
 	"context"
 	"fmt"
+	"github.com/helegehe/mini_app/internal/model"
 	"github.com/helegehe/mini_app/internal/pkg"
 	"go.mongodb.org/mongo-driver/bson"
 	"testing"
 	"time"
 )
 var MongoRepo = "mongodb://admin:123456@127.0.0.1:27017/admin?connectTimeoutMS=10000&authSource=admin"
-var MysqlRepo = "qstack:123456@tcp(10.20.74.41:3306)/matrix?charset=utf8mb4&parseTime=True&loc=Local"
+var MysqlRepo = "qstack:123456@tcp(10.20.74.41:3306)/test_mysql?charset=utf8mb4&parseTime=True&loc=Local"
 func init() {
 	pkg.InitDB(MongoRepo,MysqlRepo,"debug")
 }
@@ -84,4 +85,13 @@ func TestDelMongo(t *testing.T) {
 		return
 	}
 	fmt.Println(dr.DeletedCount)
+}
+
+
+// ============= mysql =============
+func TestAddMysql(t *testing.T){
+	err := pkg.Mysql_Client.Create(&model.Student{Name: "张三", Age: 20}).Error
+	if err != nil{
+		fmt.Println(err.Error())
+	}
 }
