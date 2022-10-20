@@ -3,7 +3,7 @@ package logger
 import (
 	"bytes"
 	"fmt"
-	"github.com/qbox/qmatrix/logger/zaplog"
+	"github.com/helegehe/mini_app/tools/logger/zaplog"
 	"runtime"
 	"strings"
 )

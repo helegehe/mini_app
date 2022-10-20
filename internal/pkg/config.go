@@ -10,6 +10,7 @@ var GlobalConfig *Conf
 
 // Conf 配置文件映射
 type Conf struct {
+	AppConfig *AppConfig
 	MongoConfig *MongoConfig
 	MySqlConfig *MySqlConfig
 	Logger *Logger
@@ -23,6 +24,7 @@ type MySqlConfig struct {
 }
 type AppConfig struct {
 	Version string `json:"version"`
+	Port string `json:"port"`
 }
 type Logger struct {
 	Level        string        // 日志打印级别

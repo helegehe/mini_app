@@ -1,7 +1,6 @@
 package zaplog
 
 import (
-	"github.com/qbox/qmatrix/util/common/filepath"
 	"os"
 	"path"
 	"strings"
@@ -24,8 +23,12 @@ func InitZap(projectName, logPath string, maxAge, rotationTime time.Duration) *z
 	rotationTime = rotationTime * time.Hour
 
 	// 创建日志存放目录
-	if err := filepath.CreateDirIfNotExist(logPath); err != nil {
-		panic(err)
+	_, err := os.Stat(logPath)
+	if os.IsNotExist(err) {
+		err = os.MkdirAll(logPath, os.ModePerm)
+		if err != nil{
+			panic(err)
+		}
 	}
 	logPath = path.Join(logPath, projectName)
 

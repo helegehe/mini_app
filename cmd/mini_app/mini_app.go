@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/helegehe/mini_app/internal/pkg"
+	"github.com/helegehe/mini_app/internal/router"
 	"github.com/helegehe/mini_app/tools/logger"
 	"github.com/helegehe/mini_app/tools/logger/zaplog"
 )
@@ -31,4 +32,5 @@ func main() {
 	logger.SetLogger(zapLogger)
 	pkg.InitDB(conf.MongoConfig.MongoRepo,conf.MySqlConfig.MysqlRepo,conf.Logger.Level)
 
+	router.InitRouter(conf.AppConfig.Port)
 }
