@@ -1,4 +1,4 @@
-package router
+package httper
 
 import (
 	"github.com/helegehe/mini_app/tools/logger"
