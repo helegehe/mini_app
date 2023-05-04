@@ -10,3 +10,5 @@ Logger:
   Path: "/tmp/mini_app"
   MaxAge: 20
   RotationTime: 20
+Render:
+  Key: {{key}}

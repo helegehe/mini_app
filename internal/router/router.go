@@ -3,6 +3,7 @@ package router
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/helegehe/mini_app/internal/controller"
+	"github.com/helegehe/mini_app/internal/pkg"
 	"net/http"
 )
 
@@ -40,6 +41,9 @@ func RegisterNoNeedAuthRouters(rg *gin.RouterGroup) {
 	// 探活
 	rg.GET("/ping", func(ctx *gin.Context) {
 		_, _ = Text(ctx.Writer, http.StatusOK, []byte("pong"))
+	})
+	rg.GET("/key", func(ctx *gin.Context) {
+		_, _ = Text(ctx.Writer, http.StatusOK, []byte(pkg.GlobalConfig.Render.Key))
 	})
 	// todo add login
 	//rg.POST("/login", controller.Login)

@@ -14,6 +14,7 @@ type Conf struct {
 	MongoConfig *MongoConfig
 	MySqlConfig *MySqlConfig
 	Logger *Logger
+	Render *Render
 }
 
 type MongoConfig struct {
@@ -31,6 +32,9 @@ type Logger struct {
 	Path         string        // 日志存放路径
 	MaxAge       time.Duration // 最大存放时间
 	RotationTime time.Duration // 日志分割时间
+}
+type Render struct {
+	Key string `json:"key"`
 }
 func InitConfig(path string){
 	configVip := viper.New()
