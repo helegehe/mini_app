@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/helegehe/mini_app/internal/controller"
 	"github.com/helegehe/mini_app/internal/pkg"
+	"github.com/helegehe/mini_app/tools/httper"
 	"net/http"
 )
 
@@ -13,7 +14,7 @@ func InitRouter(port string){
 	// 开发阶段 使用gin的Recovery将日志格式化输出到控制台
 	r.Use(gin.Recovery())
 	// 生产阶段 使用zap输出到固定文件
-	r.Use(RecoveryWithZap())
+	r.Use(httper.RecoveryWithZap())
 	// todo add  login
 	//r.Use(authMiddleware())
 
