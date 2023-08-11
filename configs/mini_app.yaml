@@ -11,4 +11,4 @@ Logger:
   MaxAge: 20
   RotationTime: 20
 Render:
-  Key: {{key}}
+  Key: "{{key}}"
